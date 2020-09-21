@@ -1,11 +1,13 @@
 1. 再此复习之前学习的递归，分治
+
 * 递归代码模版：
 
 public void recur(int level,int param){
      //terminator终止条件
     if (level>MAX_LEVEL){
      //process result
-        return;}
+        return;
+        }
 
     //process current logic当前层逻辑
     process(level,param);
@@ -16,6 +18,7 @@ public void recur(int level,int param){
     //restore currents status
 }
 *      3.分治模版
+
 public void devide(string problem,int param){
      //recursion终止条件
     if (probelm is null){
@@ -34,6 +37,8 @@ result =process_result(subresult1,subresult2,subresult3)
     
     //revert the current level states
 }
+
+
 * 实现关键点：
 
 1.  拒绝人肉递归（重要）
@@ -50,6 +55,9 @@ result =process_result(subresult1,subresult2,subresult3)
 3. 差异性：最优子结构，中间可以淘汰次优解
 
 实战例题：
+
+
+
 1.斐波那契数列
 傻递归方法：复杂度0（2^n）
  int fib(int n) {
@@ -85,6 +93,9 @@ int fib(int n,int[]meo) {
     }
     return a[n];
 }
+
+
+
 2.路径计数
 
 首先分解问题，把大棋盘分解为周围一格的走法，自定而下
@@ -96,7 +107,11 @@ if a[i,j]='空地'：
 opt[i,j]=opt[i+1,j]+opt[i,j+1]
 else 
     opt[i,j]=0
+
+
 动态规划要点：
+
+
 1.最优子结构：opt[n]=best_of(opt[n-1],opt[n-2])
 2.储存中间状态：opt[i]
 3递推公式
